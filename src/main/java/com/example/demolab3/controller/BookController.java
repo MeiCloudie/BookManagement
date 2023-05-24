@@ -39,6 +39,7 @@ public class BookController {
     @PostMapping("/add")
     public String addBook(Model model, @Valid @ModelAttribute("book") Book book, BindingResult result) {
         if (result.hasErrors()) {
+            model.addAttribute("book", new Book());
             model.addAttribute("categories", categoryService.getAllCategories());
             return "book/add";
         }
