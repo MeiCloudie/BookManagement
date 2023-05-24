@@ -1,5 +1,6 @@
 package com.example.demolab3.services;
 
+import com.example.demolab3.entity.Book;
 import com.example.demolab3.entity.Category;
 import com.example.demolab3.repository.ICategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,5 +19,15 @@ public class CategoryService {
 
     public Category saveCategory(Category category) { return categoryRepository.save(category); }
 
-    public void deleteCategory(Long id) {categoryRepository.deleteById(id); }
+    public void addCategory(Category category) {
+        categoryRepository.save(category);
+    }
+
+    public void deleteCategory(Long id) {
+        categoryRepository.deleteById(id);
+    }
+
+    public void updateCategory(Category category) {
+        categoryRepository.save(category);
+    }
 }
