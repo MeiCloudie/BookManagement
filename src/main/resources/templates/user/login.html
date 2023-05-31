@@ -31,8 +31,12 @@
                         <input type="password" required class="form-control" id="password" name="password">
                     </div>
                     <div class="mb-3">
-                        <input type="checkbox" id="remeber-me" name="remember-me">
-                        <label for="remeber-me">Rememeber me</label>
+                        <input type="checkbox" id="show-password" name="show-password">
+                        <label for="show-password" onclick="myFunction()">Show password</label>
+                    </div>
+                    <div class="mb-3">
+                        <input type="checkbox" id="remember-me" name="remember-me">
+                        <label for="remember-me">Remember me</label>
                     </div>
                     <div class="d-grid gap-2 form-action">
                         <button type="submit" class="btn btn-primary">Login</button>
@@ -44,5 +48,17 @@
     </div>
 </div>
 <th:block th:replace="~{layout :: footer}"></th:block>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+</script>
+
 </body>
 </html>
