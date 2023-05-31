@@ -1,5 +1,6 @@
 package com.example.demolab3.entity;
 
+import com.example.demolab3.repository.IUserRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -8,7 +9,12 @@ import java.util.Collections;
 
 public class CustomUserDetail implements UserDetails {
     private final User user;
-    public CustomUserDetail(User user) { this.user = user; }
+    private final IUserRepository userRepository;
+
+    public CustomUserDetail(User user, IUserRepository userRepository) {
+        this.user = user;
+        this.userRepository = userRepository;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
