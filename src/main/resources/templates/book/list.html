@@ -29,7 +29,7 @@
             <td sec:authorize="hasAnyAuthority('ADMIN')">
                 <a th:href="@{/books/edit/{id}(id=${book.id})}" class="text-info">Edit</a> |
                 <a th:href="@{/books/delete/{id}(id=${book.id})}"
-                   onclick="return confirm('Are you sure?')" class="text-danger">Delete</a>
+                   onclick="deleteBook(this); return false;" class="text-danger">Delete</a>
             </td>
         </tr>
     </table>
